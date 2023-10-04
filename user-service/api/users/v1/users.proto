@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package users.v1;
+
+import "google/api/annotations.proto";
+
+option go_package = "api/users/v1;v1";
+option java_multiple_files = true;
+option java_package = "run.apus.api.users.v1";
+option java_outer_classname = "UsersProtoV1";
+
+service Users {
+  rpc GetUser (UserGetRequest) returns (UserGetReply) {}
+}
+
+message UserGetRequest {
+  string email = 1;
+  string id = 2;
+}
+
+message User {
+  string id = 1;
+  string first_name = 2;
+  string last_name = 3;
+  int32 age = 4;
+}
+
+message UserGetReply {
+  User user = 1;
+}
